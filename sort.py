@@ -2,11 +2,14 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 import numpy as np
 
-size = 100
+size = 20
 
 datas_x = list(range(size)) * size
 datas_y = [i for i in range(size) for _ in range(size)]
 datas_z = np.random.random(size**2).tolist()
+
+datas_z_og = datas_z
+
 datas_out = [0] * size ** 2
 
 datas_scan_y_z = []
@@ -76,7 +79,7 @@ for a in range(flatness_scan * size):
 			datas_z.insert(size * (i + 2) + p, average)
 
 		datas_scan_y_z.append(size * i + p)
-		print(size * (i + 2) + p)
+
 	if size_read == len(datas_x):
 		size_read_bf = 0
 		size_read = size
@@ -90,4 +93,12 @@ for a in range(flatness_scan * size):
 		p += 1
 
 print(f"Info [{a}]: End work! -> 100%")
+#print(datas_out)
+
+
+datas_out.clear()
+for i in range(size ** 2):
+	datas_out.append(datas_z[i] - datas_z_og[i])
+	print(datas_z[i])
+	print(datas_z_og[i])
 plt.show()
