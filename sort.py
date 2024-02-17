@@ -8,7 +8,7 @@ datas_x = list(range(size)) * size
 datas_y = [i for i in range(size) for _ in range(size)]
 datas_z = np.random.random(size**2).tolist()
 
-datas_z_og = datas_z
+datas_z_og = datas_z.copy()
 
 datas_out = [0] * size ** 2
 
@@ -99,6 +99,5 @@ print(f"Info [{a}]: End work! -> 100%")
 datas_out.clear()
 for i in range(size ** 2):
 	datas_out.append(datas_z[i] - datas_z_og[i])
-	print(datas_z[i])
-	print(datas_z_og[i])
+print(datas_out)
 plt.show()
