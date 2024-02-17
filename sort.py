@@ -36,7 +36,7 @@ corner_point = 2
 p = 0
 
 for a in range(flatness_scan * size):
-	print(f"Info [{a}]: Is working! -> {round(a / flatness_scan * 100, 1)}%")
+	print(f"Info [{a}]: Is working! -> {round(a / flatness_scan * size * 100, 1)}%")
 	line.set_xdata(datas_x[size_read_bf:size_read])
 	line.set_ydata(datas_y[size_read_bf:size_read])
 	line.set_3d_properties(datas_z[size_read_bf:size_read]) 
